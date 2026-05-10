@@ -6,7 +6,7 @@ import SectionHeader from '../components/SectionHeader'
 const testimonials = [
   {
     name: 'R. Sanjay Reddy',
-    className: '10th Class CBSE',
+    className: '10th Class ICSE',
     school: 'APS Public School, MVP',
     review:
       'The teaching methods are very easy to understand and the regular guidance helped me improve my confidence in Mathematics and Science. The faculty are very supportive and motivating.',
