@@ -3,7 +3,7 @@ import { ArrowUpRight, BadgeCheck, HeartHandshake, Sparkles, Trophy } from 'luci
 import Container from '../components/Container'
 import SectionHeader from '../components/SectionHeader'
 import useCounter from '../hooks/useCounter'
-import { result } from '../data/siteData'
+import { improvementResult, result } from '../data/siteData'
 import topperImage from '../assets/topper-mohan-sai.png'
 import marksMemoImage from '../assets/results-marks-memo.png'
 
@@ -17,9 +17,9 @@ const ResultsSection = () => {
       <div className="absolute right-16 bottom-14 h-32 w-32 rounded-full bg-slate-300/35 blur-3xl" />
       <Container className="relative">
         <SectionHeader
-          badge="Top Results"
-          title="Academic excellence with proven outcomes"
-          description="Consistent performance and high scores reflect our structured teaching and individual mentorship approach."
+          badge="Academic Excellence"
+          title="Academic excellence & proven outcomes"
+          description="Celebrating topper achievements, steady improvement journeys, and strong board outcomes—backed by structured teaching and personal mentoring parents can rely on."
         />
         <div className="grid gap-4 md:grid-cols-2 md:gap-5 lg:grid-cols-3 lg:gap-6">
           <motion.article
@@ -93,23 +93,34 @@ const ResultsSection = () => {
               <div className="absolute right-4 bottom-4 left-4 text-white">
                 <p className="text-[11px] font-semibold tracking-[0.14em] text-emerald-200 uppercase">Growth & Consistency</p>
                 <p className="mt-1 text-lg font-bold leading-tight">Consistent Effort & Academic Improvement</p>
-                <p className="mt-1 text-sm text-slate-100">First Division Achievement</p>
+                <p className="mt-1 text-sm text-slate-100">{improvementResult.student}</p>
               </div>
             </div>
 
             <div className="p-5 sm:p-6">
-              <span className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-[#178a63]">
-                <Sparkles size={14} /> Encouraging Progress
-              </span>
-              <p className="mt-4 text-sm leading-relaxed text-slate-600">
-                With continuous guidance, regular practice, and dedicated effort, students are encouraged to steadily improve their academic confidence and overall performance.
-              </p>
-              <div className="mt-4 rounded-2xl bg-slate-50 p-4">
-                <p className="text-sm font-semibold text-slate-900">Motivational Note</p>
-                <p className="mt-1 text-sm leading-relaxed text-slate-600">
-                  Every student's journey is unique, and consistent hard work always leads to progress.
-                </p>
+              <div className="flex flex-wrap items-end justify-between gap-3">
+                <div>
+                  <p className="text-xs font-semibold tracking-[0.12em] text-slate-500 uppercase">SSC Public Exams</p>
+                </div>
+                <span className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-[#178a63]">
+                  <Sparkles size={14} /> Encouraging Progress
+                </span>
               </div>
+
+              <div className="mt-3 flex flex-wrap gap-2">
+                {improvementResult.highlights.map((h) => (
+                  <span
+                    key={h.label}
+                    className="inline-flex items-center gap-2 rounded-full bg-slate-50 px-3 py-1.5 text-xs font-semibold text-slate-700"
+                  >
+                    <BadgeCheck size={14} className="text-[#178a63]" /> {h.score} {h.label}
+                  </span>
+                ))}
+              </div>
+
+              <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                With regular guidance, continuous practice, and personal attention, students steadily improve their confidence and academic performance.
+              </p>
             </div>
           </motion.article>
 

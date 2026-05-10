@@ -7,14 +7,14 @@ const testimonials = [
   {
     name: 'R. Sanjay Reddy',
     className: '10th Class CBSE',
-    school: 'Visakha Valley School',
+    school: 'APS Public School, MVP',
     review:
       'The teaching methods are very easy to understand and the regular guidance helped me improve my confidence in Mathematics and Science. The faculty are very supportive and motivating.',
   },
   {
     name: 'S. Kuldeep',
     className: '10th Class',
-    school: 'APS Public School, MVP',
+    school: 'Visakha Valley School',
     review:
       'I improved a lot through regular practice tests and personal attention. The classes are friendly, comfortable, and very helpful for board exam preparation.',
   },

@@ -23,11 +23,11 @@ const HomePage = () => (
     />
     <HeroSection />
     <div className="section-divider mx-auto h-px w-[92%] max-w-6xl" />
+    <FacultySection />
+    <ResultsSection />
+    <GallerySection />
     <WhyChooseSection />
     <CoursesSection />
-    <ResultsSection />
-    <FacultySection />
-    <GallerySection />
     <TestimonialsSection />
     <ContactSection />
     <Footer />

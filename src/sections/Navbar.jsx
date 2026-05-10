@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { Menu, Phone, X } from 'lucide-react'
 import { institute, navLinks } from '../data/siteData'
 import Container from '../components/Container'
@@ -6,45 +6,58 @@ import ssvLogo from '../assets/ssv-logo.png'
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
   const [activeHref, setActiveHref] = useState('#home')
   const [isOverHero, setIsOverHero] = useState(true)
+  const navInnerRef = useRef(null)
+
+  const resolveActiveHref = useCallback(() => {
+    const navEl = navInnerRef.current
+    if (!navEl) return
+
+    const marker = window.scrollY + navEl.getBoundingClientRect().bottom + 6
+    let next = '#home'
+
+    for (const link of navLinks) {
+      const id = link.href.startsWith('#') ? link.href.slice(1) : ''
+      const el = id ? document.getElementById(id) : null
+      if (!el) continue
+
+      const top = el.getBoundingClientRect().top + window.scrollY
+      if (top <= marker) next = link.href
+    }
+
+    setActiveHref((prev) => (prev === next ? prev : next))
+  }, [])
 
   useEffect(() => {
     const onScroll = () => {
-      setIsScrolled(window.scrollY > 16)
-      setIsOverHero(window.scrollY < 520)
+      setIsOverHero(window.scrollY < 620)
+      resolveActiveHref()
     }
-    window.addEventListener('scroll', onScroll)
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', resolveActiveHref, { passive: true })
+    window.addEventListener('hashchange', resolveActiveHref)
+    onScroll()
+
+    const frame = requestAnimationFrame(() => resolveActiveHref())
+    return () => {
+      cancelAnimationFrame(frame)
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', resolveActiveHref)
+      window.removeEventListener('hashchange', resolveActiveHref)
+    }
+  }, [resolveActiveHref])
 
   useEffect(() => {
-    const sectionIds = navLinks.map((l) => l.href).filter((h) => h.startsWith('#'))
-    const sections = sectionIds
-      .map((href) => document.querySelector(href))
-      .filter(Boolean)
-
-    if (!sections.length) return undefined
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => (b.intersectionRatio ?? 0) - (a.intersectionRatio ?? 0))[0]
-        if (visible?.target?.id) setActiveHref(`#${visible.target.id}`)
-      },
-      { root: null, threshold: [0.2, 0.35, 0.5], rootMargin: '-20% 0px -65% 0px' }
-    )
-
-    sections.forEach((s) => observer.observe(s))
-    return () => observer.disconnect()
-  }, [])
+    resolveActiveHref()
+  }, [menuOpen, resolveActiveHref])
 
   return (
     <header className="fixed top-0 right-0 left-0 z-40">
       <Container>
         <nav
+          ref={navInnerRef}
           className={`mt-2 rounded-2xl px-3 py-2.5 transition-all duration-300 sm:mt-3 sm:px-6 sm:py-3 ${
             isOverHero ? 'nav-glass' : 'nav-glass-light'
           }`}
@@ -69,13 +82,11 @@ const Navbar = () => {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className={`text-sm font-medium transition ${
+                    className={`text-sm transition-colors duration-200 ease-out ${
                       activeHref === link.href
-                        ? 'text-[var(--brand-green-600)]'
-                        : isOverHero
-                          ? 'text-white/80 hover:text-white'
-                          : 'text-slate-700 hover:text-[var(--brand-green-600)]'
-                    }`}
+                        ? 'font-semibold'
+                        : 'font-medium'
+                    } ${activeHref === link.href ? 'text-[#17C964]' : isOverHero ? 'text-white/80 hover:text-white' : 'text-slate-700 hover:text-[#17C964]'}`}
                   >
                     {link.label}
                   </a>
@@ -102,8 +113,10 @@ const Navbar = () => {
                   <a
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
-                    className={`block rounded-lg px-3 py-2.5 text-sm font-medium transition ${
-                      isOverHero ? 'text-white/90 hover:bg-white/10' : 'text-slate-700 hover:bg-slate-100'
+                    className={`block rounded-lg px-3 py-2.5 text-sm transition-colors duration-200 ease-out ${
+                      activeHref === link.href
+                        ? 'font-semibold text-[#17C964]'
+                        : `font-medium ${isOverHero ? 'text-white/90 hover:bg-white/10' : 'text-slate-700 hover:bg-slate-100'}`
                     }`}
                   >
                     {link.label}

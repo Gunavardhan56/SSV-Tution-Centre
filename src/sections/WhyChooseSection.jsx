@@ -11,7 +11,7 @@ const WhyChooseSection = () => (
         title="A learning environment built for outcomes"
         description="We combine experienced mentoring, personal attention, and disciplined academic systems to help students excel with confidence."
       />
-      <div className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
+      <div className="mx-auto grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
         {whyChooseUs.map((item, index) => (
           <motion.article
             key={item.title}

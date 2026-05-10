@@ -1,13 +1,10 @@
 import {
-  BookOpenText,
-  Brain,
   BriefcaseBusiness,
   Building2,
   CheckCircle2,
   FlaskConical,
   GraduationCap,
   HeartHandshake,
-  Home,
   Landmark,
   Languages,
   Lightbulb,
@@ -15,13 +12,12 @@ import {
   Microscope,
   PencilRuler,
   School,
-  Target,
   Trophy,
   Users,
 } from 'lucide-react'
 
 export const institute = {
-  name: 'Sri Sai Vaagdevi (SSV) Tuition Center',
+  name: 'Sri Sai Vagdevi (SSV) Tuition Center',
   shortName: 'SSV',
   tagline: 'Building Strong Foundations From LKG to PG',
   phone: '+91 89858 86883',
@@ -37,10 +33,10 @@ export const institute = {
 
 export const navLinks = [
   { label: 'Home', href: '#home' },
-  { label: 'Courses', href: '#courses' },
-  { label: 'Results', href: '#results' },
   { label: 'Faculty', href: '#faculty' },
+  { label: 'Results', href: '#results' },
   { label: 'Gallery', href: '#gallery' },
+  { label: 'Courses', href: '#courses' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -55,10 +51,6 @@ export const whyChooseUs = [
   { icon: Users, title: 'Experienced Faculty', description: 'Highly qualified educators with result-driven strategies.' },
   { icon: HeartHandshake, title: 'Individual Attention', description: 'Personal support for every learner and parent.' },
   { icon: CheckCircle2, title: 'Weekly Tests', description: 'Continuous assessments to track performance progress.' },
-  { icon: Brain, title: 'Concept-based Learning', description: 'Strong fundamentals built through practical clarity.' },
-  { icon: Target, title: 'IIT/EAPCET Guidance', description: 'Focused preparation pathways for competitive exams.' },
-  { icon: Home, title: 'Peaceful Learning Environment', description: 'Calm, distraction-free setup for better concentration.' },
-  { icon: BookOpenText, title: 'Strong Academic Support', description: 'Doubt resolution and mentoring throughout the journey.' },
   { icon: Building2, title: 'Home-based Comfortable Learning', description: 'Supportive and safe atmosphere for consistent growth.' },
 ]
 
@@ -84,24 +76,18 @@ export const faculty = [
     qualification: 'M.Sc., M.Tech., M.Phil., Ph.D.',
     experience: '17 Years Teaching Experience',
     specialization: 'Physics Specialist',
-    highlights: [
-      'Assistant Professor at ANITS',
-      'Best Teacher Awards',
-      'PhD in Materials Science',
-      'Expert in Concept-based Teaching',
-    ],
+    role: 'Assistant Professor at ANITS',
+    mentoringExpertise: 'Concept-led physics mentoring from school boards through competitive readiness with clear fundamentals.',
+    highlights: ['Best Teacher Award', 'PhD in Materials Science', 'Concept-based teaching expert', 'Doubt-solving & individualized planning'],
   },
   {
     name: 'Mrs. M Hemalatha',
     qualification: 'M.Sc. Organic Chemistry',
     experience: '5 Years Teaching Experience',
     specialization: 'Chemistry Specialist',
-    highlights: [
-      'Student-centered Teaching',
-      'Strong Academic Guidance',
-      'Clarity-focused approach',
-      'Personal mentoring support',
-    ],
+    role: 'Chemistry Mentor & Academic Guide',
+    mentoringExpertise: 'Patient, student-centered support with structured revision and regular concept checks.',
+    highlights: ['Student-centered teaching', 'Strong academic guidance', 'Clarity-focused coaching', 'Consistent mentorship'],
   },
 ]
 
@@ -112,5 +98,13 @@ export const result = {
   highlights: [
     { label: 'Mathematics', score: '100/100', icon: Medal },
     { label: 'Science', score: '97/100', icon: Lightbulb },
+  ],
+}
+
+export const improvementResult = {
+  student: 'Doddi Prabhu Kumar',
+  highlights: [
+    { label: 'Mathematics', score: '77/100' },
+    { label: 'Science', score: '78/100' },
   ],
 }
