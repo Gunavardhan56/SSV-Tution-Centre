@@ -33,7 +33,7 @@ const TestimonialsSection = () => (
       <SectionHeader
         badge="Testimonials"
         title="What Our Students Say"
-        description="Real experiences from students guided at SSV Tuition Center."
+        description="Real experiences from students guided at SSV Tuition Centre."
       />
       <div className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
         {testimonials.map((t, index) => (

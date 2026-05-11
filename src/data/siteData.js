@@ -17,7 +17,7 @@ import {
 } from 'lucide-react'
 
 export const institute = {
-  name: 'Sri Sai Vagdevi (SSV) Tuition Center',
+  name: 'Sri Sai Vaagdevi (SSV) Tuition Centre',
   shortName: 'SSV',
   tagline: 'Building Strong Foundations From LKG to PG',
   phone: '+91 89858 86883',

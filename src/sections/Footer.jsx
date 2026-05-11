@@ -11,7 +11,7 @@ const Footer = () => (
           <div className="flex items-center gap-3">
             <img
               src={ssvLogo}
-              alt="SSV Tuition Center Logo"
+              alt="SSV Tuition Centre Logo"
               className="h-11 w-11 rounded-lg bg-white object-contain p-1 sm:h-12 sm:w-12"
             />
             <p className="text-sm font-semibold text-white sm:text-base">{institute.name}</p>
@@ -50,7 +50,7 @@ const Footer = () => (
         </div>
       </div>
       <div className="mt-8 border-t border-slate-800 pt-6 text-center text-xs text-slate-500 sm:text-sm">
-        Copyright {new Date().getFullYear()} {institute.shortName} Tuition Center. All rights reserved.
+        Copyright {new Date().getFullYear()} {institute.shortName} Tuition Centre. All rights reserved.
       </div>
     </Container>
   </footer>

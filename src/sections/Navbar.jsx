@@ -66,12 +66,12 @@ const Navbar = () => {
             <a href="#home" className="flex items-center gap-2 sm:gap-3">
               <img
                 src={ssvLogo}
-                alt="SSV Tuition Center Logo"
+                alt="SSV Tuition Centre Logo"
                 className="h-10 w-10 rounded-xl object-contain sm:h-12 sm:w-12"
               />
               <div>
                 <p className={`text-xs font-semibold sm:text-sm ${isOverHero ? 'text-white/95' : 'text-slate-900'}`}>
-                  {institute.shortName} Tuition Center
+                  {institute.shortName} Tuition Centre
                 </p>
                 <p className={`text-[11px] sm:text-xs ${isOverHero ? 'text-white/70' : 'text-slate-500'}`}>Premium Academic Mentoring</p>
               </div>

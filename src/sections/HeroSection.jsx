@@ -33,11 +33,11 @@ const HeroSection = () => {
             <div className="glass-card mb-4 inline-flex items-center gap-3 rounded-2xl px-3 py-2 sm:mb-5">
               <img
                 src={ssvLogo}
-                alt="Sri Sai Vaagdevi Tuition Center Logo"
+                alt="Sri Sai Vaagdevi Tuition Centre Logo"
                 className="h-10 w-10 rounded-lg object-contain sm:h-12 sm:w-12"
               />
               <div className="text-left">
-                <p className="text-xs font-semibold text-white/95 sm:text-sm">{institute.shortName} Tuition Center</p>
+                <p className="text-xs font-semibold text-white/95 sm:text-sm">{institute.shortName} Tuition Centre</p>
                 <p className="text-[11px] text-white/70 sm:text-xs">Premium Academic Mentoring</p>
               </div>
             </div>

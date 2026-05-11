@@ -12,7 +12,7 @@ const ContactSection = () => (
     <Container>
       <SectionHeader
         badge="Contact"
-        title="Get in touch with SSV Tuition Center"
+        title="Get in touch with SSV Tuition Centre"
         description="Talk to us for admissions, personalized guidance, and course details."
       />
       <div className="grid gap-5 sm:gap-6 lg:grid-cols-2">
@@ -90,7 +90,7 @@ const ContactSection = () => (
         <div className="premium-card rounded-3xl p-3 sm:p-4">
           <div className="relative overflow-hidden rounded-2xl">
             <iframe
-              title="SSV Tuition Center Location"
+              title="SSV Tuition Centre Location"
               src={mapsEmbedUrl}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
@@ -100,7 +100,7 @@ const ContactSection = () => (
               href={mapsOpenUrl}
               target="_blank"
               rel="noreferrer"
-              aria-label="Open SSV Tuition Center location in Google Maps"
+              aria-label="Open SSV Tuition Centre location in Google Maps"
               className="absolute inset-0 z-10"
             />
             <span className="pointer-events-none absolute right-3 bottom-3 z-20 rounded-full bg-slate-900/85 px-3 py-1 text-xs font-semibold text-white">
